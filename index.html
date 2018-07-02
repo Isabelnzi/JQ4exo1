@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Exercice1</title>
+  </head>
+  <body>
+    <select>
+      <option value="1">pierre</option>
+      <option value="2">feuille</option>
+      <option value="3">ciseaux</option>
+    </select>
+<input type="button" value="Shifumi" id="button">
+<script src="jquery-3.2.1.js"></script>
+<script>
+//nombre de partie
+$(function(){
+var  numberWin= 0;
+var numberGames = 0;
+var percentWin = 0;
+$('#button').click(function() {
+ numberWin ++;
+ var choiceBot =Math.floor(Math.random()*3)+1;
+ var userChoice = $('select').val();
+ if(choiceBot == userChoice){
+   alert('equality');
+  }else if((choiceBot == 3 && userChoice == 2)||(choiceBot == 2 && userChoice == 1)||(choiceBot == 1 && userChoice == 3)){
+      alert('Lost');
+  }else{
+      //nombre de victoire + 1 a chaque partie gagné
+      numberWin++;
+      alert('Win');
+    }
+    // pourcetage nombre de gagné * 100 / numbre de partie
+    percentWin = numberWin*100/numberGames;
+    alert(percentWin + '%');
+  });
+});
+</script>
+  </body>
+</html>
